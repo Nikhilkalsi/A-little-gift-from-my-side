@@ -167,10 +167,10 @@ const STOPS = [
     tease:"Keep scrolling. It only gets better from here." },
   { date:"June 2025", title:"Our first date", place:"That Wild bean cafe", caption:"I rehearsed three topics. We talked about none of them.", photo:"photos/02.JPG",
     tease:"Psst… tap this photo. A few of them hide secrets.",
-    secret:"Before I ever said a word to you, I had already said it to God at the temple." },
+    secret:"The night before our first date, I stood in the temple and asked God for only one thing. You." },
   { date:"June 2025", title:"Our first trip", place:"The hills", caption:"Wrong turns, one shared umbrella, zero regrets.", photo:"photos/03.JPG",
     tease:"You're smiling right now. Don't deny it.",
-    secret:"Of all the places on that trip, my favourite was right next to you." },
+    secret:"Everyone else was looking at the view. I was busy looking at mine." },
   { date:"Dec 2025", title:"when you said yes", place:"my heart", caption:"The special day when you accepted my proposal.", photo:"photos/04.JPG",
     tease:"Okay, this one is my favourite.",
     secret:"This is the day alway special for me . I just didn't say it out loud yet." },
@@ -289,9 +289,7 @@ document.getElementById('love').addEventListener('click', e => {
   const b = e.currentTarget.getBoundingClientRect(), cx = b.left + b.width/2, cy = b.top + b.height/2;
   e.currentTarget.textContent = 'I knew you would.';
   const f = document.getElementById('found');
-  f.textContent = found.size === totalSecrets ? 'And you found every secret. Of course you did.'
-    : `P.S. You missed ${totalSecrets - found.size} secret${totalSecrets - found.size > 1 ? 's' : ''} up there. Go back and tap the photos.`;
-  f.classList.add('show');
+  if (found.size === totalSecrets){ f.textContent = 'And you found every secret. Of course you did.'; f.classList.add('show'); }
   for (let i=0;i<46;i++){
     const h = document.createElement('div'); h.className = 'burst';
     h.innerHTML = heart(['#ff5e6c','#fff','#f7a94b','#ffb3c1'][i%4]);
